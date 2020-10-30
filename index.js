@@ -12,10 +12,18 @@
     })
 }
   
-  return fetch("http://localhost:3000/users", configObj) {
+  return fetch("http://localhost:3000/users", configObj) 
   .then(function(response) {
       return response.json(); 
   })
   .then(function(object) {
-      
- })
+      let idNode = document.createElement('p')
+      idNode.innerHTML = object.id
+      document.body.appendChild(idNode)
+  })
+  .catch(function(error) {
+    let errorNode = document.createElement('p')
+    errorNode.innerHTML = error.message
+    document.body.appendChild(errorNode)
+  })
+ }
